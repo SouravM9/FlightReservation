@@ -28,4 +28,19 @@ public class FlightServiceImpl implements FlightService {
 		return flight.get();
 	}
 
+	@Override
+	public List<Flight> getAllFlights() {
+		return repository.findAll();
+	}
+
+	@Override
+	public void delete(Long id) {
+		repository.deleteById(id);
+	}
+
+	@Override
+	public void saveOrUpdate(Flight flight) {
+		repository.save(flight);
+	}
+
 }

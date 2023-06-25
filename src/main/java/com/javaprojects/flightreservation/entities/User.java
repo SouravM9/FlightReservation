@@ -4,14 +4,14 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
 @Entity
-public class User extends AbstractEntity{
+public class User extends AbstractEntity {
 
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	private String email;
 	private String password;
 
@@ -45,6 +45,12 @@ public class User extends AbstractEntity{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
+				+ "]";
 	}
 
 }

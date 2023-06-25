@@ -1,5 +1,7 @@
 package com.javaprojects.flightreservation.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,21 @@ public class UserServiceImpl implements UserService {
 		if (user.getPassword().equals(password))
 			return user;
 		return null;
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		return repository.findAll();
+	}
+
+	@Override
+	public User findById(Long id) {
+		return repository.findById(id).get();
+	}
+
+	@Override
+	public void delete(Long id) {
+		repository.deleteById(id);
 	}
 
 }
